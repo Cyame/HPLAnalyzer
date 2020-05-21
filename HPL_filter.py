@@ -17,7 +17,7 @@ with open(_file,'r',encoding = 'utf-8') as f:
     for line in f.readlines():
         if line[0] == 'W' and not 'Written' in line and not line == '':
             thisline = line.split()
-            ident = "-".join(thisline[1:5])
+            ident = "-".join(thisline[0:5])
             #print(ident)
             if ident in alllines.keys():
                 alllines[ident].append([thisline[0],thisline[6]])
@@ -42,6 +42,6 @@ for key in alllines.keys():
     array = np.array([float(pair[1]) for pair in alllines[key]])
     #print(key," = ",arra
     # y)
-    print(key,"# min ={:e}, max = {:e}, avr = {:e}, mean = {:e}, mid = {:e}, std = {:e}, var = {:e}".format(np.amin(array),np.amax(array),np.average(array),np.mean(array),np.median(array), np.std(array), np.var(array)))
+    #print(key,"# min ={:e}, max = {:e}, avr = {:e}, mean = {:e}, mid = {:e}, std = {:e}, var = {:e}".format(np.amin(array),np.amax(array),np.average(array),np.mean(array),np.median(array), np.std(array), np.var(array)))
     #print(key,"max = ",)
     #print(list)
